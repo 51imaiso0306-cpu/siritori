@@ -52,6 +52,8 @@
       if (response.status !== 200) {
         const errorJson = await response.text();
         const errorObj = JSON.parse(errorJson);
+        // errorObj["errorCode"]ごとに処理を分岐する
+        // errorCodeが、末尾が「ん」の時のエラーだったら、ゲームを終了する
         alert(errorObj["errorMessage"]);
         return;
       }
