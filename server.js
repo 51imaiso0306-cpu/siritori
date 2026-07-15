@@ -2,7 +2,7 @@
 import { serveDir } from "jsr:@std/http/file-server";
 
 // 直前の単語を保持しておく
-let previousWord = "しりとり";
+let wordHistories = ["しりとり"];
 
 // localhostにDenoのHTTPサーバーを展開
 Deno.serve(async (_req) => {
@@ -62,6 +62,16 @@ Deno.serve(async (_req) => {
          // 現在の単語を返す
          return new Response(previousWord);
      }
+    // POST /reset: ゲームをリセットする
+    if (_req.method === "POST" && pathname === "/reset") {
+        // 直前の単語を初期値に戻す
+        previousWord = "しりとり";
+        // ゲーム終了状態を管理している場合は、こちらも戻す
+        // isGameOver = false;
+        return new Response(previousWord, {
+            status: 200,
+        });
+    }
  
     // ./public以下のファイルを公開
     return serveDir(
