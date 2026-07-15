@@ -35,7 +35,7 @@ Deno.serve(async (_req) => {
                          "errorCode": "10002"
                  }),
                  {
-                     status: 400,
+                     status: 404,
                      headers: { "Content-Type": "application/json; charset=utf-8" },
                  }
              );
