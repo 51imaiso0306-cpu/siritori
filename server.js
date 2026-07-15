@@ -33,12 +33,12 @@ Deno.serve(async (_req) => {
                      JSON.stringify({
                          "errorMessage": "${nextWord}が入力されました。末尾が「ん」になっています。ゲームを終了します",
                          "errorCode": "10002"
-                 }),
-                 {
-                     status: 400,
-                     headers: { "Content-Type": "application/json; charset=utf-8" },
-                 }
-             );
+                     }),
+                 　　{
+                         status: 400,
+                         headers: { "Content-Type": "application/json; charset=utf-8" },
+                     }
+                 );
              }
              // 同一であれば、previousWordを更新
              previousWord = nextWord;
