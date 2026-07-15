@@ -27,11 +27,12 @@ Deno.serve(async (_req) => {
              // 末尾が「ん」になっている場合
              // ifの中に入力された単語の末尾が「ん」になっていることを確認する条件式を追加
              if (nextWord.slice(-1) === "ん") {
+                 previousWord = nextWord;
                  // エラーを返す処理を追加
                  // errorCodeを固有のものにして、末尾が「ん」の時に発生したエラーだとWeb側に通知できるようにする
                  return new Response(
                      JSON.stringify({
-                         "errorMessage": "${nextWord}が入力されました。末尾が「ん」になっています。ゲームを終了します",
+                         "errorMessage": '${nextWord}が入力されました。末尾が「ん」になっています。ゲームを終了します',
                          "errorCode": "10002"
                      }),
                  　　{
