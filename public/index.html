@@ -17,6 +17,7 @@
   <!-- 次の文字を入力するフォーム -->
   <input id="nextWordInput" type="text" />
   <button id="nextWordSendButton">送信</button>
+  <button id="resetSendButton">リセット</button>
 
   <!-- JavaScriptを実行 -->
   <script>
@@ -78,6 +79,17 @@
       // inputタグの中身を消去する
       nextWordInput.value = "";
     }
+    // リセットボタン
+    document.querySelector("#resetSendButton").onclick = async () => {
+      const response = await fetch("/reset", {
+        method: "POST",
+      });
+      if (!response.ok) {
+        alert("リセットに失敗しました");
+        return;
+      }
+      window.location.reload();
+    };
   </script>
 </body>
 
