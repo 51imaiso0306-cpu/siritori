@@ -31,11 +31,11 @@ Deno.serve(async (_req) => {
                  // errorCodeを固有のものにして、末尾が「ん」の時に発生したエラーだとWeb側に通知できるようにする
                  return new Response(
                      JSON.stringify({
-                         "errorMessage": "りんが入力されました。末尾が「ん」になっています。ゲームを終了します",
+                         "errorMessage": "${nextWord}が入力されました。末尾が「ん」になっています。ゲームを終了します",
                          "errorCode": "10002"
                  }),
                  {
-                     status: 404,
+                     status: 400,
                      headers: { "Content-Type": "application/json; charset=utf-8" },
                  }
              );
