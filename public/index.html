@@ -59,14 +59,14 @@
         }
         if (errorObj.errorCode === "10002") {
           alert(errorObj.errorMessage);
-          document.querySelector("#previousWord").textContent =「${nextWordInputText}」でゲーム終了`;
+          document.querySelector("#previousWord").textContent =　`「${nextWordInputText}」でゲーム終了`;
           nextWordInput.disabled = true;
           const sendButton = document.querySelector("#nextWordSendButton");
           sendButton.disabled = true;
           sendButton.textContent = "ゲーム終了";
           return;
           }
-          alert(errorObj["不明なエラーが発生しました"]);
+          alert("不明なエラーが発生しました");
           return;
         }
       const previousWord = await response.text();
